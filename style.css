@@ -1,80 +1,179 @@
-
+/* --- Global Styles & Background --- */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-form {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 60px 30px;
-    border: none;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out; /* Added animation for form hover effect */
-}
-form:hover {
-    transform: translateY(-5px); /* Added hover effect */
-}
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-form div {
-    margin-bottom: 20px; /* Adds space after each div */
-}
-
-.name-section {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); /* Soft purple-blue gradient */
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    
+    justify-content: center;
+    align-items: flex-start; /* Aligns to top so long forms don't get cut off */
+    padding: 40px 20px;
+    margin: 0;
 }
 
-input[type="text"],
-input[type="date"],
-input[type="email"],
-input[type="password"],
-select {
-    width: calc(50% - 5px);
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    box-sizing: border-box;
-    background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Gradient background for input fields */
+/* --- Main Form Card --- */
+form {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 650px; /* Prevents it from getting too wide on desktop */
+    padding: 35px 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft shadow */
+}
+
+/* --- Header Section --- */
+div h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 28px;
+}
+
+marquee {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* --- Form Layout Spacing --- */
+form > div {
+    margin-bottom: 20px;
 }
 
 label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 14px;
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 6px;
 }
 
-input[type="checkbox"] {
-    margin-right: 5px;
+h5 {
+    color: #e74c3c; /* Red for attention */
+    font-size: 13px;
+    margin-bottom: 8px;
 }
 
-.submit-btn,
-.reset-btn {
-    padding: 10px 20px;
-    margin-top: auto;
-    border: none;
-    border-radius: 5px;
-    background: linear-gradient(45deg, #2c3e50, #34495e); /* Gradient background for buttons */
-    color: #fff;
+/* --- Input Fields General Styling --- */
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+}
+
+/* Focus effect (when user clicks an input) */
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #8ec5fc;
+    box-shadow: 0 0 0 4px rgba(142, 197, 252, 0.3);
+    background-color: #ffffff;
+}
+
+/* --- Name Section (Side-by-Side) --- */
+.name-section {
+    display: flex;
+    gap: 20px; /* Space between First and Last name */
+}
+
+.name-section input {
+    flex: 1; /* Makes both inputs equal width */
+}
+
+/* We hide the plain text labels in the name section because 
+   the inputs already have placeholders */
+.name-section {
+    font-size: 0; /* Hides the "Name:" and "Last Name:" text nodes */
+}
+
+/* --- Select Dropdown --- */
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #f8fafc;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    display: inline-block;
+    transition: all 0.3s ease;
 }
 
-.submit-btn:hover,
+select:focus {
+    outline: none;
+    border-color: #8ec5fc;
+    box-shadow: 0 0 0 4px rgba(142, 197, 252, 0.3);
+    background-color: #ffffff;
+}
+
+/* --- Checkbox --- */
+input[type="checkbox"] {
+    transform: scale(1.2); /* Makes checkbox slightly larger */
+    margin-right: 8px;
+    cursor: pointer;
+    accent-color: #2563eb; /* Modern blue checkmark */
+}
+
+/* --- Buttons --- */
+.submit-btn, .reset-btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+.submit-btn {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.submit-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.reset-btn {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
 .reset-btn:hover {
-    background: linear-gradient(45deg, #1a252f, #1e2a35); /* Darker gradient on hover */
+    background-color: #e2e8f0;
+    transform: translateY(-2px);
 }
 
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    form {
+        padding: 25px 20px;
+    }
+    
+    .name-section {
+        flex-direction: column; /* Stacks first/last name on small screens */
+        gap: 15px;
+    }
+
+    .submit-btn, .reset-btn {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
 
 
