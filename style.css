@@ -1,219 +1,393 @@
-/* --- Global Styles & Background --- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); /* Soft purple-blue gradient */
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Aligns to top so long forms don't get cut off */
-    padding: 40px 20px;
-    margin: 0;
+/* ===== GOOGLE FONT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===== GLOBAL ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* --- Main Form Card --- */
-form {
-    background-color: #ffffff;
-    width: 100%;
-    max-width: 650px; /* Prevents it from getting too wide on desktop */
-    padding: 35px 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft shadow */
+body{
+    font-family:'Poppins', sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a 0%,
+        #1e293b 35%,
+        #312e81 100%
+    );
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 20px;
+
+    overflow-x:hidden;
 }
 
-/* --- Header Section --- */
-div h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 5px;
-    font-size: 28px;
+/* ===== FORM CARD ===== */
+
+form{
+    width:100%;
+    max-width:720px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    padding:40px;
+
+    border-radius:28px;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.35);
+
+    animation:fadeIn 1s ease;
 }
 
-marquee {
-    font-size: 13px;
-    color: #7f8c8d;
-    margin-bottom: 25px;
-    font-style: italic;
-}
+/* ===== ANIMATION ===== */
 
-/* --- Form Layout Spacing --- */
-form > div {
-    margin-bottom: 20px;
-}
+@keyframes fadeIn{
 
-label {
-    font-weight: 600;
-    color: #34495e;
-    font-size: 14px;
-    display: block;
-    margin-bottom: 6px;
-}
-
-h5 {
-    color: #e74c3c; /* Red for attention */
-    font-size: 13px;
-    margin-bottom: 8px;
-}
-
-/* --- Input Fields General Styling --- */
-input[type="text"],
-input[type="date"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-size: 15px;
-    box-sizing: border-box; /* Ensures padding doesn't break width */
-    transition: all 0.3s ease;
-    background-color: #f8fafc;
-}
-
-/* Focus effect (when user clicks an input) */
-input[type="text"]:focus,
-input[type="date"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-    outline: none;
-    border-color: #8ec5fc;
-    box-shadow: 0 0 0 4px rgba(142, 197, 252, 0.3);
-    background-color: #ffffff;
-}
-
-/* --- Name Section (Side-by-Side) --- */
-.name-section {
-    display: flex;
-    gap: 20px; /* Space between First and Last name */
-}
-
-.name-section input {
-    flex: 1; /* Makes both inputs equal width */
-}
-
-/* We hide the plain text labels in the name section because 
-   the inputs already have placeholders */
-.name-section {
-    font-size: 0; /* Hides the "Name:" and "Last Name:" text nodes */
-}
-
-
-
- /* Show/Hide Button */
-    .toggle-password{
-        position:absolute;
-        right:12px;
-        top:42px;
-        cursor:pointer;
-        color:#555;
-        font-size:14px;
-        font-weight:bold;
+    from{
+        opacity:0;
+        transform:translateY(30px);
     }
 
-    /* Strength Meter */
-    .strength-meter{
-        height:8px;
-        border-radius:10px;
-        margin-top:10px;
-        background:#333;
-        overflow:hidden;
-    }
-
-    .strength-bar{
-        height:100%;
-        width:0%;
-        transition:0.4s;
-        border-radius:10px;
-    }
-
-    .strength-text{
-        margin-top:8px;
-        font-size:14px;
-    }
-
-    /* Password Match */
-    .match-text{
-        margin-top:8px;
-        font-size:14px;
-    }
-
-/* --- Select Dropdown --- */
-select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-size: 15px;
-    background-color: #f8fafc;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-select:focus {
-    outline: none;
-    border-color: #8ec5fc;
-    box-shadow: 0 0 0 4px rgba(142, 197, 252, 0.3);
-    background-color: #ffffff;
-}
-
-/* --- Checkbox --- */
-input[type="checkbox"] {
-    transform: scale(1.2); /* Makes checkbox slightly larger */
-    margin-right: 8px;
-    cursor: pointer;
-    accent-color: #2563eb; /* Modern blue checkmark */
-}
-
-/* --- Buttons --- */
-.submit-btn, .reset-btn {
-    padding: 12px 25px;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-right: 15px;
-}
-
-.submit-btn {
-    background-color: #2563eb;
-    color: #ffffff;
-}
-
-.submit-btn:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-2px); /* Slight lift effect */
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
-}
-
-.reset-btn {
-    background-color: #f1f5f9;
-    color: #475569;
-    border: 1px solid #cbd5e1;
-}
-
-.reset-btn:hover {
-    background-color: #e2e8f0;
-    transform: translateY(-2px);
-}
-
-/* --- Mobile Responsiveness --- */
-@media (max-width: 600px) {
-    form {
-        padding: 25px 20px;
-    }
-    
-    .name-section {
-        flex-direction: column; /* Stacks first/last name on small screens */
-        gap: 15px;
-    }
-
-    .submit-btn, .reset-btn {
-        width: 100%;
-        text-align: center;
-        margin-right: 0;
-        margin-bottom: 10px;
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
+/* ===== HEADER ===== */
 
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    color:#ffffff;
+
+    font-size:36px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+    letter-spacing:1px;
+}
+
+marquee{
+    color:#cbd5e1;
+
+    font-size:14px;
+
+    opacity:0.85;
+}
+
+/* ===== INPUT SECTION ===== */
+
+.input-box{
+    margin-bottom:24px;
+}
+
+.input-box label{
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    color:#e2e8f0;
+}
+
+/* ===== INPUTS ===== */
+
+input,
+select{
+    width:100%;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    font-size:15px;
+
+    transition:0.35s ease;
+}
+
+input::placeholder{
+    color:#cbd5e1;
+}
+
+select{
+    color:#ffffff;
+}
+
+option{
+    color:#000;
+}
+
+/* ===== INPUT FOCUS ===== */
+
+input:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:#8b5cf6;
+
+    background:rgba(255,255,255,0.12);
+
+    box-shadow:
+    0 0 0 5px rgba(139,92,246,0.18),
+    0 0 18px rgba(139,92,246,0.25);
+
+    transform:translateY(-2px);
+}
+
+/* ===== NAME SECTION ===== */
+
+.name-section{
+    display:flex;
+    gap:20px;
+}
+
+.name-section .input-box{
+    flex:1;
+}
+
+/* ===== PASSWORD ===== */
+
+.password-wrapper{
+    position:relative;
+}
+
+.toggle-password{
+    position:absolute;
+
+    right:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    font-size:13px;
+    font-weight:600;
+
+    color:#a78bfa;
+
+    transition:0.3s;
+}
+
+.toggle-password:hover{
+    color:#ffffff;
+}
+
+/* ===== PASSWORD STRENGTH ===== */
+
+.strength-meter{
+
+    width:100%;
+    height:10px;
+
+    background:rgba(255,255,255,0.1);
+
+    border-radius:50px;
+
+    margin-top:14px;
+
+    overflow:hidden;
+}
+
+.strength-bar{
+
+    height:100%;
+    width:0%;
+
+    border-radius:50px;
+
+    transition:0.5s ease;
+}
+
+.strength-text,
+.match-text{
+
+    margin-top:10px;
+
+    font-size:14px;
+
+    font-weight:500;
+}
+
+/* ===== CHECKBOX ===== */
+
+.checkbox-section{
+
+    margin-top:10px;
+}
+
+.checkbox-section h5{
+
+    color:#fca5a5;
+
+    margin-bottom:10px;
+
+    font-size:13px;
+}
+
+.checkbox-label{
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    color:#e2e8f0;
+
+    font-size:15px;
+}
+
+.checkbox-label input{
+    width:auto;
+
+    transform:scale(1.2);
+
+    accent-color:#8b5cf6;
+}
+
+/* ===== BUTTONS ===== */
+
+.button-group{
+
+    margin-top:35px;
+
+    display:flex;
+
+    gap:18px;
+}
+
+.submit-btn,
+.reset-btn{
+
+    flex:1;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.35s ease;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+
+.submit-btn{
+
+    background:
+    linear-gradient(
+        135deg,
+        #8b5cf6,
+        #6366f1
+    );
+
+    color:white;
+
+    box-shadow:
+    0 8px 20px rgba(99,102,241,0.35);
+}
+
+.submit-btn:hover{
+
+    transform:
+    translateY(-3px)
+    scale(1.02);
+
+    box-shadow:
+    0 12px 25px rgba(99,102,241,0.45);
+}
+
+/* ===== RESET BUTTON ===== */
+
+.reset-btn{
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    color:white;
+}
+
+.reset-btn:hover{
+
+    background:rgba(255,255,255,0.14);
+
+    transform:translateY(-3px);
+}
+
+/* ===== FORM HOVER EFFECT ===== */
+
+form:hover{
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,0.45);
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#6366f1;
+    border-radius:20px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:700px){
+
+    form{
+        padding:28px;
+    }
+
+    .header h1{
+        font-size:28px;
+    }
+
+    .name-section{
+        flex-direction:column;
+        gap:0;
+    }
+
+    .button-group{
+        flex-direction:column;
+    }
+}
