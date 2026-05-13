@@ -4,35 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
+
 <body>
-    <form action="">
-      <div>
+
+<form id="registration-form">
+
+    <div class="header">
         <h1>Registration Form</h1>
-        <marquee direction="right">This Article Is Just For Demo Purpose </marquee>
+        <marquee direction="right">
+            This Article Is Just For Demo Purpose
+        </marquee>
+    </div>
+
+    <!-- Name Section -->
+    <div class="name-section">
+
+        <div class="input-box">
+            <label>First Name</label>
+            <input type="text" name="myname"
+                   placeholder="Type your first name" required>
         </div>
-        <div class="name-section">
-            Name: <input type="text" name="myname" placeholder="Type your name" required="">
-            Last Name: <input type="text" name="l.name" placeholder="Type your Last name" required="">
+
+        <div class="input-box">
+            <label>Last Name</label>
+            <input type="text" name="lname"
+                   placeholder="Type your last name" required>
         </div>
-        <div>
-            Date of Birth: <input type="date" name="" id="" required="">
-         </div>
-         <div>
-            Role: <input type="text" name="role" placeholder=" i.e: Software engineer" required="">
-         </div>
-         <div>
-            Email: <input type="emai" name="email" placeholder="Name@gmail.com" required=""> 
-         </div>
-         <div>
-           <label for="password">
-            Create password: <input type="password" name="password" id="password" placeholder="Type your password" required="">
-          <span class="toggle-password" onclick="togglePassword('password', this)">
-            Show
-        </span> </label>
-             
+
+    </div>
+
+    <!-- DOB -->
+    <div class="input-box">
+        <label>Date of Birth</label>
+        <input type="date" required>
+    </div>
+
+    <!-- Role -->
+    <div class="input-box">
+        <label>Role</label>
+        <input type="text" name="role"
+               placeholder="i.e: Software Engineer" required>
+    </div>
+
+    <!-- Email -->
+    <div class="input-box">
+        <label>Email</label>
+        <input type="email" name="email"
+               placeholder="name@gmail.com" required>
+    </div>
+
+    <!-- Password -->
+    <div class="input-box">
+
+        <label>Create Password</label>
+
+        <div class="password-wrapper">
+
+            <input type="password"
+                   id="password"
+                   placeholder="Type your password"
+                   required>
+
+            <span class="toggle-password"
+                  onclick="togglePassword('password', this)">
+                Show
+            </span>
+
         </div>
 
         <!-- Strength Meter -->
@@ -44,61 +84,88 @@
 
     </div>
 
-           <div>
-           <label for="password">
-            Confirm password: <input type="password" name=" com-password" id="com-password" placeholder="Re-type your password" required="">
-         <span class="toggle-password" onclick="togglePassword('com-password', this)">
-            Show
-        </span>
+    <!-- Confirm Password -->
+    <div class="input-box">
 
-        <div class="match-text" id="match-text"></div> </label>
+        <label>Confirm Password</label>
+
+        <div class="password-wrapper">
+
+            <input type="password"
+                   id="com-password"
+                   placeholder="Re-type your password"
+                   required>
+
+            <span class="toggle-password"
+                  onclick="togglePassword('com-password', this)">
+                Show
+            </span>
+
         </div>
-       <div>
-        <label for="Course">Course:</label>
-        <select name="my course" id="course">
-        <option value="">--Please Select--</option>
-        <option value="Web-Development">Web-Development</option>
-        <option value="App-Development">App-Development</option>
-        <option value="Data Analytics">Data Analytics</option>
-        <option value="Ethical Hacking">Ethical Hacking</option>
-        <option value="Introduction to Programming">Introduction to Programming</option>
-        <option value="Introduction to Linux">Introduction to Linux</option>
-        <option value="Introduction to AI">Introduction to AI</option>
-        <option value="Machine learning">Machine learning</option>
-        <option value="Introduction to Psychology">Introduction to Psychology</option>
-        <option value="Clinical Psychology">Clinical Psychology</option>
-        <option value="Industrial Psychology">Industrial Psychology</option>
-        <option value="Web & App Designing">Web & App Designing</option>
-        <option value="MS Office">MS Office</option>
-        <option value="Risk Management">Risk Management</option>
-        <option value="Finance Management">Finance Management</option>
-        <option value="Business Management">Business Management</option>
-        <option value="Sales training/techniques">Sales training/techniques</option>
-        <option value="Marketing Strategies">Marketing Strategies</option>
-        <option value="Project Management">Project Management</option>
-        <option value="Business writing & Resumes">Business writing & Resumes</option>
-        <option value="HTML for beginners">HTML for beginners</option>
-        <option value="Python for beginners ">Python for beginners</option>
-        <option value="Basics of CSS">Basics of CSS</option>
-        <option value="JAVA SCRIPT for beginners">JAVA SCRIPT for beginners</option>
-        <optgroup label="Languages">
-         <option value="English">English</option>
-         <option value="Urdu">Urdu</option>
-         <option value="Sindhi">Sindhi</option>   
-        <option value="Marathi">Marathi</option>
-        <option value="Business Comunications">Business Comunications</option>
-        <option value="Advance English">Advance English</option>
-        </optgroup>
-      </select>
-   </div>
-   <div>
-      <h5>Note: Must have completed Intermediate</h5>
-      Are you eligible?: <input type="checkbox" name="agreement" id="agreement">
-   </div>
-   <div>
-      <input type="submit" value="Submit Now" class="submit-btn">
-      <input type="reset" value="Reset" class="reset-btn">
-   </div>  
-    </form>
+
+        <div class="match-text" id="match-text"></div>
+
+    </div>
+
+    <!-- Course -->
+    <div class="input-box">
+
+        <label>Course</label>
+
+        <select id="course">
+
+            <option value="">-- Please Select --</option>
+
+            <option>Web Development</option>
+            <option>App Development</option>
+            <option>Data Analytics</option>
+            <option>Ethical Hacking</option>
+            <option>Introduction to AI</option>
+            <option>Machine Learning</option>
+            <option>Finance Management</option>
+            <option>Business Management</option>
+            <option>HTML for Beginners</option>
+            <option>Python for Beginners</option>
+
+            <optgroup label="Languages">
+                <option>English</option>
+                <option>Urdu</option>
+                <option>Sindhi</option>
+                <option>Marathi</option>
+            </optgroup>
+
+        </select>
+
+    </div>
+
+    <!-- Checkbox -->
+    <div class="checkbox-section">
+
+        <h5>Note: Must have completed Intermediate</h5>
+
+        <label class="checkbox-label">
+            <input type="checkbox" required>
+            Are you eligible?
+        </label>
+
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-group">
+
+        <input type="submit"
+               value="Submit Now"
+               class="submit-btn">
+
+        <input type="reset"
+               value="Reset"
+               class="reset-btn">
+
+    </div>
+
+</form>
+
+<script src="script.js"></script>
+
 </body>
 </html>
