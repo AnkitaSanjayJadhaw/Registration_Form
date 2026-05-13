@@ -20,13 +20,13 @@ body{
     position:relative;
 
     background:
-    linear-gradient(
-        135deg,
-        #fdf2f6,
-        #e0f1fe,
-        #ede8fe,
-        #fef9c2
-    );
+linear-gradient(
+    135deg,
+    #ffffff,
+    #f8fbff,
+    #f7f5ff,
+    #fffef9
+);
 
     background-size:300% 300%;
 
