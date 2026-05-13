@@ -1,12 +1,12 @@
-/* ===== IMPORT FONT ===== */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+/* ===== GOOGLE FONT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* ===== RESET ===== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Outfit', sans-serif;
+    font-family:'Poppins', sans-serif;
 }
 
 /* ===== BODY ===== */
@@ -21,21 +21,20 @@ body{
 
     background:
     linear-gradient(
-        120deg,
-        #ff6b6b,
-        #ff9f43,
-        #feca57,
-        #48dbfb,
-        #5f27cd
+        135deg,
+        #fdf2f8,
+        #e0f2fe,
+        #ede9fe,
+        #fef9c3
     );
 
-    background-size:400% 400%;
+    background-size:300% 300%;
 
-    animation:bgMove 12s ease infinite;
+    animation:bgAnimation 12s ease infinite;
 }
 
 /* Animated Background */
-@keyframes bgMove{
+@keyframes bgAnimation{
 
     0%{
         background-position:0% 50%;
@@ -50,28 +49,30 @@ body{
     }
 }
 
-/* Floating Glow Circles */
+/* Soft Floating Circles */
 body::before,
 body::after{
     content:'';
     position:absolute;
-    width:350px;
-    height:350px;
+    width:320px;
+    height:320px;
     border-radius:50%;
-    filter:blur(100px);
+    filter:blur(90px);
     z-index:-1;
 }
 
 body::before{
-    background:rgba(255,255,255,0.3);
+    background:#f9a8d4;
     top:-120px;
-    left:-100px;
+    left:-120px;
+    opacity:0.45;
 }
 
 body::after{
-    background:rgba(255,255,255,0.2);
+    background:#93c5fd;
     bottom:-120px;
-    right:-100px;
+    right:-120px;
+    opacity:0.45;
 }
 
 /* ===== FORM ===== */
@@ -79,33 +80,33 @@ body::after{
     width:100%;
     max-width:760px;
 
-    background:rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.45);
 
-    backdrop-filter:blur(22px);
+    backdrop-filter:blur(18px);
 
-    border:1px solid rgba(255,255,255,0.2);
+    border:1px solid rgba(255,255,255,0.4);
 
-    border-radius:35px;
+    border-radius:30px;
 
     padding:45px;
 
     box-shadow:
-    0 25px 45px rgba(0,0,0,0.2);
+    0 20px 40px rgba(0,0,0,0.08);
 
-    animation:formAppear 1s ease;
+    animation:fadeUp 1s ease;
 }
 
 /* Form Animation */
-@keyframes formAppear{
+@keyframes fadeUp{
 
     from{
         opacity:0;
-        transform:translateY(40px) scale(0.95);
+        transform:translateY(40px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0) scale(1);
+        transform:translateY(0);
     }
 }
 
@@ -116,20 +117,15 @@ body::after{
 }
 
 .header h1{
-    font-size:2.8rem;
-    color:#fff;
+    font-size:2.7rem;
+    color:#4c1d95;
     font-weight:700;
-    letter-spacing:1px;
     margin-bottom:10px;
-
-    text-shadow:
-    0 5px 20px rgba(0,0,0,0.2);
 }
 
 .header marquee{
-    color:#fefefe;
+    color:#64748b;
     font-size:0.95rem;
-    font-weight:400;
 }
 
 /* ===== NAME SECTION ===== */
@@ -147,9 +143,9 @@ body::after{
 .input-box label{
     display:block;
     margin-bottom:8px;
-    color:#fff;
-    font-weight:500;
-    font-size:0.96rem;
+    color:#334155;
+    font-weight:600;
+    font-size:0.95rem;
 }
 
 /* ===== INPUTS ===== */
@@ -163,13 +159,13 @@ body::after{
 
     outline:none;
 
-    border-radius:18px;
+    border-radius:16px;
 
-    background:rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.75);
 
-    color:#fff;
+    color:#334155;
 
-    font-size:0.96rem;
+    font-size:0.95rem;
 
     border:2px solid transparent;
 
@@ -178,7 +174,7 @@ body::after{
 
 /* Placeholder */
 .input-box input::placeholder{
-    color:#f1f5f9;
+    color:#94a3b8;
 }
 
 /* Hover */
@@ -190,12 +186,12 @@ body::after{
 /* Focus */
 .input-box input:focus,
 .input-box select:focus{
-    border-color:#fff;
+    border-color:#c084fc;
 
-    background:rgba(255,255,255,0.25);
+    background:#fff;
 
     box-shadow:
-    0 0 20px rgba(255,255,255,0.3);
+    0 0 20px rgba(192,132,252,0.25);
 }
 
 /* ===== PASSWORD WRAPPER ===== */
@@ -207,18 +203,18 @@ body::after{
     padding-right:90px;
 }
 
-/* ===== SHOW BUTTON ===== */
+/* ===== TOGGLE PASSWORD ===== */
 .toggle-password{
     position:absolute;
-    top:50%;
     right:18px;
+    top:50%;
     transform:translateY(-50%);
 
-    color:#fff;
+    color:#7c3aed;
 
     cursor:pointer;
 
-    font-size:0.92rem;
+    font-size:0.9rem;
 
     font-weight:600;
 
@@ -226,16 +222,20 @@ body::after{
 }
 
 .toggle-password:hover{
-    color:#000;
+    color:#4c1d95;
 }
 
 /* ===== STRENGTH METER ===== */
 .strength-meter{
     width:100%;
-    height:10px;
-    background:rgba(255,255,255,0.2);
+    height:9px;
+
+    background:#e2e8f0;
+
     border-radius:20px;
+
     margin-top:12px;
+
     overflow:hidden;
 }
 
@@ -252,7 +252,6 @@ body::after{
     margin-top:8px;
     font-size:0.9rem;
     font-weight:500;
-    color:#fff;
 }
 
 /* ===== SELECT ===== */
@@ -269,16 +268,15 @@ select{
 
     border-radius:20px;
 
-    background:rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.55);
 
-    border:1px solid rgba(255,255,255,0.2);
+    border:1px solid rgba(255,255,255,0.4);
 }
 
 .checkbox-section h5{
-    color:#fff;
+    color:#7c3aed;
     margin-bottom:12px;
     font-size:0.92rem;
-    font-weight:500;
 }
 
 .checkbox-label{
@@ -286,14 +284,15 @@ select{
     align-items:center;
     gap:10px;
 
-    color:#fff;
+    color:#334155;
+    font-weight:500;
 }
 
 .checkbox-label input{
     width:18px;
     height:18px;
 
-    accent-color:#5f27cd;
+    accent-color:#8b5cf6;
 }
 
 /* ===== BUTTON GROUP ===== */
@@ -312,7 +311,7 @@ select{
 
     border:none;
 
-    border-radius:18px;
+    border-radius:16px;
 
     font-size:1rem;
 
@@ -323,41 +322,43 @@ select{
     transition:0.35s ease;
 }
 
-/* Submit */
+/* Submit Button */
 .submit-btn{
-    background:#fff;
-    color:#5f27cd;
+    background:
+    linear-gradient(
+        135deg,
+        #c084fc,
+        #60a5fa
+    );
+
+    color:#fff;
 
     box-shadow:
-    0 10px 25px rgba(255,255,255,0.3);
+    0 12px 25px rgba(96,165,250,0.25);
 }
 
 .submit-btn:hover{
-    transform:translateY(-4px) scale(1.02);
-
-    background:#5f27cd;
-    color:#fff;
-
-    box-shadow:
-    0 15px 35px rgba(95,39,205,0.4);
-}
-
-/* Reset */
-.reset-btn{
-    background:rgba(255,255,255,0.15);
-
-    color:#fff;
-
-    border:1px solid rgba(255,255,255,0.2);
-}
-
-.reset-btn:hover{
-    background:#ff4757;
-
     transform:translateY(-4px);
 
     box-shadow:
-    0 12px 28px rgba(255,71,87,0.4);
+    0 15px 30px rgba(192,132,252,0.35);
+}
+
+/* Reset Button */
+.reset-btn{
+    background:#fff;
+
+    color:#64748b;
+
+    border:1px solid #e2e8f0;
+}
+
+.reset-btn:hover{
+    background:#fee2e2;
+
+    color:#dc2626;
+
+    transform:translateY(-4px);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -388,7 +389,7 @@ select{
 
     #registration-form{
         padding:24px;
-        border-radius:25px;
+        border-radius:22px;
     }
 
     .header h1{
