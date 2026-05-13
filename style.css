@@ -20,8 +20,7 @@ body{
     position:relative;
 
     background:
-linear-gradient(135deg, #e9d5ff, #c7d2fe, #bfdbfe, #ddd6fe);
-
+linear-gradient(135deg, #4c1d95, #6d28d9, #9333ea, #a855f7);
     background-size:300% 300%;
 
     animation:bgAnimation 12s ease infinite;
