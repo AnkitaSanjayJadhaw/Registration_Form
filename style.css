@@ -96,6 +96,46 @@ input[type="password"]:focus {
     font-size: 0; /* Hides the "Name:" and "Last Name:" text nodes */
 }
 
+
+
+ /* Show/Hide Button */
+    .toggle-password{
+        position:absolute;
+        right:12px;
+        top:42px;
+        cursor:pointer;
+        color:#555;
+        font-size:14px;
+        font-weight:bold;
+    }
+
+    /* Strength Meter */
+    .strength-meter{
+        height:8px;
+        border-radius:10px;
+        margin-top:10px;
+        background:#333;
+        overflow:hidden;
+    }
+
+    .strength-bar{
+        height:100%;
+        width:0%;
+        transition:0.4s;
+        border-radius:10px;
+    }
+
+    .strength-text{
+        margin-top:8px;
+        font-size:14px;
+    }
+
+    /* Password Match */
+    .match-text{
+        margin-top:8px;
+        font-size:14px;
+    }
+
 /* --- Select Dropdown --- */
 select {
     width: 100%;
