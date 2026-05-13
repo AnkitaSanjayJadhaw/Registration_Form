@@ -29,12 +29,29 @@
          <div>
            <label for="password">
             Create password: <input type="password" name="password" id="password" placeholder="Type your password" required="">
-           </label>
+          <span class="toggle-password" onclick="togglePassword('password', this)">
+            Show
+        </span> </label>
+             
         </div>
+
+        <!-- Strength Meter -->
+        <div class="strength-meter">
+            <div class="strength-bar" id="strength-bar"></div>
+        </div>
+
+        <div class="strength-text" id="strength-text"></div>
+
+    </div>
+
            <div>
            <label for="password">
             Confirm password: <input type="password" name=" com-password" id="com-password" placeholder="Re-type your password" required="">
-           </label>
+         <span class="toggle-password" onclick="togglePassword('com-password', this)">
+            Show
+        </span>
+
+        <div class="match-text" id="match-text"></div> </label>
         </div>
        <div>
         <label for="Course">Course:</label>
