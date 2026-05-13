@@ -1,7 +1,12 @@
-/* ===== GOOGLE FONT ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* ======================================================
+   MODERN PREMIUM REGISTRATION FORM UI
+====================================================== */
 
-/* ===== GLOBAL ===== */
+/* ===== GOOGLE FONT ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ===== RESET ===== */
 
 *{
     margin:0;
@@ -9,16 +14,11 @@
     box-sizing:border-box;
 }
 
-body{
-    font-family:'Poppins', sans-serif;
+/* ===== BODY ===== */
 
-    background:
-    linear-gradient(
-        135deg,
-        #0f172a 0%,
-        #1e293b 35%,
-        #312e81 100%
-    );
+body{
+
+    font-family:'Inter', sans-serif;
 
     min-height:100vh;
 
@@ -29,70 +29,166 @@ body{
     padding:40px 20px;
 
     overflow-x:hidden;
+
+    background:
+    linear-gradient(
+        -45deg,
+        #0f172a,
+        #111827,
+        #172554,
+        #312e81
+    );
+
+    background-size:400% 400%;
+
+    animation:gradientBG 14s ease infinite;
 }
 
-/* ===== FORM CARD ===== */
+/* ===== ANIMATED BACKGROUND ===== */
+
+@keyframes gradientBG{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* ===== FORM CONTAINER ===== */
 
 form{
+
     width:100%;
-    max-width:720px;
+    max-width:760px;
 
-    background:rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,0.12);
-
-    padding:40px;
+    padding:45px;
 
     border-radius:28px;
 
-    box-shadow:
-    0 10px 40px rgba(0,0,0,0.35);
+    background:
+    rgba(255,255,255,0.08);
 
-    animation:fadeIn 1s ease;
+    backdrop-filter:blur(18px);
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.45);
+
+    animation:formEntry 1s ease;
+
+    position:relative;
+
+    overflow:hidden;
 }
 
-/* ===== ANIMATION ===== */
+/* ===== GLOW EFFECT ===== */
 
-@keyframes fadeIn{
+form::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(99,102,241,0.45),
+        transparent 70%
+    );
+
+    top:-80px;
+    right:-80px;
+
+    z-index:0;
+}
+
+form::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:200px;
+    height:200px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(168,85,247,0.35),
+        transparent 70%
+    );
+
+    bottom:-90px;
+    left:-90px;
+
+    z-index:0;
+}
+
+/* ===== FORM ANIMATION ===== */
+
+@keyframes formEntry{
 
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:
+        translateY(40px)
+        scale(0.95);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:
+        translateY(0)
+        scale(1);
     }
+}
+
+/* ===== KEEP CONTENT ABOVE GLOW ===== */
+
+form *{
+    position:relative;
+    z-index:2;
 }
 
 /* ===== HEADER ===== */
 
 .header{
     text-align:center;
-    margin-bottom:25px;
+    margin-bottom:35px;
 }
 
 .header h1{
+
     color:#ffffff;
 
-    font-size:36px;
+    font-size:38px;
 
     font-weight:700;
 
-    margin-bottom:12px;
+    margin-bottom:10px;
 
     letter-spacing:1px;
 }
 
 marquee{
+
     color:#cbd5e1;
 
     font-size:14px;
 
-    opacity:0.85;
+    opacity:0.9;
 }
 
 /* ===== INPUT SECTION ===== */
@@ -102,72 +198,81 @@ marquee{
 }
 
 .input-box label{
+
     display:block;
 
     margin-bottom:10px;
 
+    color:#f8fafc;
+
     font-size:15px;
 
     font-weight:500;
-
-    color:#e2e8f0;
 }
 
 /* ===== INPUTS ===== */
 
 input,
 select{
+
     width:100%;
 
     padding:15px 18px;
 
-    border-radius:14px;
+    border-radius:16px;
 
-    border:1px solid rgba(255,255,255,0.15);
+    border:
+    1px solid rgba(255,255,255,0.12);
 
-    background:rgba(255,255,255,0.08);
+    background:
+    rgba(255,255,255,0.06);
 
     color:white;
 
     font-size:15px;
 
-    transition:0.35s ease;
+    transition:all 0.35s ease;
 }
+
+/* ===== PLACEHOLDER ===== */
 
 input::placeholder{
     color:#cbd5e1;
 }
 
-select{
-    color:#ffffff;
-}
+/* ===== OPTIONS ===== */
 
 option{
     color:#000;
 }
 
-/* ===== INPUT FOCUS ===== */
+/* ===== FOCUS EFFECT ===== */
 
 input:focus,
 select:focus{
 
     outline:none;
 
-    border-color:#8b5cf6;
+    border-color:#818cf8;
 
-    background:rgba(255,255,255,0.12);
+    background:
+    rgba(255,255,255,0.10);
 
     box-shadow:
-    0 0 0 5px rgba(139,92,246,0.18),
-    0 0 18px rgba(139,92,246,0.25);
+    0 0 0 5px rgba(99,102,241,0.18),
+    0 0 22px rgba(99,102,241,0.28);
 
-    transform:translateY(-2px);
+    transform:
+    translateY(-2px)
+    scale(1.01);
 }
 
 /* ===== NAME SECTION ===== */
 
 .name-section{
+
     display:flex;
+
     gap:20px;
 }
 
@@ -175,13 +280,16 @@ select:focus{
     flex:1;
 }
 
-/* ===== PASSWORD ===== */
+/* ===== PASSWORD WRAPPER ===== */
 
 .password-wrapper{
     position:relative;
 }
 
+/* ===== SHOW/HIDE ===== */
+
 .toggle-password{
+
     position:absolute;
 
     right:18px;
@@ -191,43 +299,54 @@ select:focus{
 
     cursor:pointer;
 
-    font-size:13px;
-    font-weight:600;
+    color:#a5b4fc;
 
-    color:#a78bfa;
+    font-size:13px;
+
+    font-weight:600;
 
     transition:0.3s;
 }
 
 .toggle-password:hover{
+
     color:#ffffff;
+
+    transform:
+    translateY(-50%)
+    scale(1.08);
 }
 
-/* ===== PASSWORD STRENGTH ===== */
+/* ===== STRENGTH METER ===== */
 
 .strength-meter{
 
     width:100%;
+
     height:10px;
 
-    background:rgba(255,255,255,0.1);
+    background:
+    rgba(255,255,255,0.08);
 
     border-radius:50px;
 
-    margin-top:14px;
-
     overflow:hidden;
+
+    margin-top:14px;
 }
 
 .strength-bar{
 
-    height:100%;
     width:0%;
+
+    height:100%;
 
     border-radius:50px;
 
     transition:0.5s ease;
 }
+
+/* ===== PASSWORD TEXT ===== */
 
 .strength-text,
 .match-text{
@@ -242,13 +361,12 @@ select:focus{
 /* ===== CHECKBOX ===== */
 
 .checkbox-section{
-
-    margin-top:10px;
+    margin-top:8px;
 }
 
 .checkbox-section h5{
 
-    color:#fca5a5;
+    color:#fda4af;
 
     margin-bottom:10px;
 
@@ -268,22 +386,23 @@ select:focus{
 }
 
 .checkbox-label input{
+
     width:auto;
 
-    transform:scale(1.2);
+    transform:scale(1.15);
 
-    accent-color:#8b5cf6;
+    accent-color:#818cf8;
 }
 
 /* ===== BUTTONS ===== */
 
 .button-group{
 
-    margin-top:35px;
-
     display:flex;
 
     gap:18px;
+
+    margin-top:35px;
 }
 
 .submit-btn,
@@ -291,11 +410,11 @@ select:focus{
 
     flex:1;
 
-    padding:15px;
+    padding:16px;
 
     border:none;
 
-    border-radius:14px;
+    border-radius:16px;
 
     font-size:16px;
 
@@ -303,60 +422,64 @@ select:focus{
 
     cursor:pointer;
 
-    transition:0.35s ease;
+    transition:all 0.35s ease;
 }
 
-/* ===== SUBMIT BUTTON ===== */
+/* ===== SUBMIT ===== */
 
 .submit-btn{
 
     background:
     linear-gradient(
         135deg,
-        #8b5cf6,
-        #6366f1
+        #6366f1,
+        #8b5cf6
     );
 
     color:white;
 
     box-shadow:
-    0 8px 20px rgba(99,102,241,0.35);
+    0 10px 22px rgba(99,102,241,0.35);
 }
 
 .submit-btn:hover{
 
     transform:
-    translateY(-3px)
+    translateY(-4px)
     scale(1.02);
 
     box-shadow:
-    0 12px 25px rgba(99,102,241,0.45);
+    0 14px 28px rgba(99,102,241,0.45);
 }
 
-/* ===== RESET BUTTON ===== */
+/* ===== RESET ===== */
 
 .reset-btn{
 
-    background:rgba(255,255,255,0.08);
-
-    border:1px solid rgba(255,255,255,0.12);
+    background:
+    rgba(255,255,255,0.08);
 
     color:white;
+
+    border:
+    1px solid rgba(255,255,255,0.12);
 }
 
 .reset-btn:hover{
 
-    background:rgba(255,255,255,0.14);
+    background:
+    rgba(255,255,255,0.14);
 
-    transform:translateY(-3px);
+    transform:
+    translateY(-4px);
 }
 
-/* ===== FORM HOVER EFFECT ===== */
+/* ===== FORM HOVER ===== */
 
 form:hover{
 
     box-shadow:
-    0 15px 50px rgba(0,0,0,0.45);
+    0 18px 55px rgba(0,0,0,0.5);
 }
 
 /* ===== SCROLLBAR ===== */
@@ -366,28 +489,39 @@ form:hover{
 }
 
 ::-webkit-scrollbar-thumb{
-    background:#6366f1;
+
+    background:
+    linear-gradient(
+        #6366f1,
+        #8b5cf6
+    );
+
     border-radius:20px;
 }
 
 /* ===== MOBILE ===== */
 
-@media(max-width:700px){
+@media(max-width:768px){
 
     form{
-        padding:28px;
+
+        padding:30px 24px;
     }
 
     .header h1{
-        font-size:28px;
+
+        font-size:30px;
     }
 
     .name-section{
+
         flex-direction:column;
+
         gap:0;
     }
 
     .button-group{
+
         flex-direction:column;
     }
 }
