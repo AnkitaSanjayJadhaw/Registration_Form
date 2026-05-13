@@ -1,134 +1,185 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
+document.addEventListener('DOMContentLoaded', () => {
+
+    const form = document.getElementById('registration-form');
+
     const password = document.getElementById('password');
-    const confirmPassword = document.getElementById('com-password');
-    const email = document.querySelector('input[type="email"]');
-    const resetButton = document.querySelector('.reset-btn');
 
-    // Correcting the typo in the type attribute for the email input
-    if(email) email.type = 'email';
+    const confirmPassword =
+    document.getElementById('com-password');
 
+    const strengthBar =
+    document.getElementById('strength-bar');
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
+    const strengthText =
+    document.getElementById('strength-text');
 
-        // Check if passwords match
-        if (password.value !== confirmPassword.value) {
-            alert("Passwords do not match.");
-            return; // Stop the form submission
-        }
+    const matchText =
+    document.getElementById('match-text');
 
-        // You can add more validation here if needed
+    /* ===== PASSWORD STRENGTH ===== */
 
-        // If everything's okay, proceed with form submission
-        // For demonstration, we'll just show an alert
-        alert("Form submitted successfully!");
-
-        // If you want to actually submit the form to a server,
-        // you would typically use AJAX here or simply not prevent the default
-        // form submission behavior if you're not doing any client-side validation.
-    });
-
-    resetButton.addEventListener('click', function (e) {
-        // Confirm before resetting the form
-        const isConfirmed = confirm("Are you sure you want to reset the form?");
-        if (!isConfirmed) {
-            e.preventDefault(); // Prevent form reset
-        }
-    });
-});
-
-
-
-
-
-const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("com-password");
-
-    const strengthBar = document.getElementById("strength-bar");
-    const strengthText = document.getElementById("strength-text");
-    const matchText = document.getElementById("match-text");
-
-    // Password Strength Checker
-    password.addEventListener("input", () => {
+    password.addEventListener('input', () => {
 
         const value = password.value;
+
         let strength = 0;
 
         if(value.length >= 6) strength++;
-        if(value.match(/[A-Z]/)) strength++;
-        if(value.match(/[0-9]/)) strength++;
-        if(value.match(/[@$!%*?&]/)) strength++;
+
+        if(/[A-Z]/.test(value)) strength++;
+
+        if(/[0-9]/.test(value)) strength++;
+
+        if(/[@$!%*?&]/.test(value)) strength++;
 
         switch(strength){
 
             case 1:
+
                 strengthBar.style.width = "25%";
-                strengthBar.style.background = "red";
-                strengthText.innerHTML = "Weak Password";
-                strengthText.style.color = "red";
+                strengthBar.style.background = "#ef4444";
+
+                strengthText.innerHTML =
+                "Weak Password";
+
+                strengthText.style.color =
+                "#ef4444";
+
                 break;
 
             case 2:
+
                 strengthBar.style.width = "50%";
-                strengthBar.style.background = "orange";
-                strengthText.innerHTML = "Medium Password";
-                strengthText.style.color = "orange";
+                strengthBar.style.background = "#f59e0b";
+
+                strengthText.innerHTML =
+                "Medium Password";
+
+                strengthText.style.color =
+                "#f59e0b";
+
                 break;
 
             case 3:
+
                 strengthBar.style.width = "75%";
-                strengthBar.style.background = "yellow";
-                strengthText.innerHTML = "Good Password";
-                strengthText.style.color = "yellow";
+                strengthBar.style.background = "#eab308";
+
+                strengthText.innerHTML =
+                "Good Password";
+
+                strengthText.style.color =
+                "#eab308";
+
                 break;
 
             case 4:
+
                 strengthBar.style.width = "100%";
-                strengthBar.style.background = "limegreen";
-                strengthText.innerHTML = "Strong Password";
-                strengthText.style.color = "limegreen";
+                strengthBar.style.background = "#22c55e";
+
+                strengthText.innerHTML =
+                "Strong Password";
+
+                strengthText.style.color =
+                "#22c55e";
+
                 break;
 
             default:
+
                 strengthBar.style.width = "0%";
+
                 strengthText.innerHTML = "";
         }
 
         checkPasswordMatch();
     });
 
-    // Confirm Password Match
-    confirmPassword.addEventListener("input", checkPasswordMatch);
+    /* ===== PASSWORD MATCH ===== */
+
+    confirmPassword.addEventListener(
+        'input',
+        checkPasswordMatch
+    );
 
     function checkPasswordMatch(){
 
         if(confirmPassword.value === ""){
+
             matchText.innerHTML = "";
+
             return;
         }
 
         if(password.value === confirmPassword.value){
-            matchText.innerHTML = "✓ Passwords Match";
-            matchText.style.color = "limegreen";
+
+            matchText.innerHTML =
+            "✓ Passwords Match";
+
+            matchText.style.color =
+            "#22c55e";
         }
+
         else{
-            matchText.innerHTML = "✗ Passwords Do Not Match";
-            matchText.style.color = "red";
+
+            matchText.innerHTML =
+            "✗ Passwords Do Not Match";
+
+            matchText.style.color =
+            "#ef4444";
         }
     }
 
-    // Show / Hide Password
-    function togglePassword(id, element){
+    /* ===== FORM SUBMIT ===== */
 
-        const input = document.getElementById(id);
+    form.addEventListener('submit', (e) => {
 
-        if(input.type === "password"){
-            input.type = "text";
-            element.innerHTML = "Hide";
+        e.preventDefault();
+
+        if(password.value !== confirmPassword.value){
+
+            alert("Passwords do not match.");
+
+            return;
         }
-        else{
-            input.type = "password";
-            element.innerHTML = "Show";
+
+        alert("Form submitted successfully!");
+    });
+
+    /* ===== RESET CONFIRM ===== */
+
+    document.querySelector('.reset-btn')
+    .addEventListener('click', (e) => {
+
+        const confirmReset =
+        confirm("Are you sure you want to reset the form?");
+
+        if(!confirmReset){
+
+            e.preventDefault();
         }
+    });
+
+});
+
+/* ===== SHOW/HIDE PASSWORD ===== */
+
+function togglePassword(id, element){
+
+    const input = document.getElementById(id);
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+        element.innerHTML = "Hide";
     }
+
+    else{
+
+        input.type = "password";
+
+        element.innerHTML = "Show";
+    }
+}
